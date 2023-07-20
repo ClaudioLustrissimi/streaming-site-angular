@@ -1,0 +1,45 @@
+<main>
+    <div class="loginbox">
+        <form [formGroup]="loginForm" (ngSubmit)="loginControl()">
+            <h2>Login</h2>
+            
+            <div class="inputbox">
+
+                <input
+                name="email" 
+                id="email"  
+                type="text"
+                formControlName="email">
+                <label for="email">Email</label>
+                
+
+            </div>
+
+            <div class="inputbox">
+
+                <input 
+                type="password"
+                name="password"
+                id="password"
+                formControlName="password">
+                <label for="password">Password</label>
+                
+
+            </div>
+
+            <div class="rememberbox">
+
+                <a href="">Password dimenticata?</a>
+
+            </div>
+
+            <button type="submit">Login</button>
+
+            <div class="registerlink">
+
+                <p>Non hai un account? <a routerLink="/registrati" routerLinkActive="/registrati">Registrati qui</a></p>
+            </div>
+
+        </form>
+    </div>
+</main>

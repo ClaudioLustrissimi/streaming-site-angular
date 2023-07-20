@@ -1,0 +1,26 @@
+{
+  "users": [
+    {
+      "nome": "Claudio",
+      "cognome": "Lustrissimi",
+      "email": "claudiolus@live.it",
+      "password": "Claudio001"
+    }
+  ],
+  "posts": [
+    {
+      "nome": "ClaudioAdmin",
+      "email": "claudiolustrissimi@gmail.com",
+      "password": "Claudio1999",
+      "ripetipassword": "Claudio1999",
+      "id": 1
+    },
+    {
+      "nome": "antonio",
+      "email": "a.giannasca@labforweb.it",
+      "password": "Antonio1!",
+      "ripetipassword": "Antonio1!",
+      "id": 2
+    }
+  ]
+}

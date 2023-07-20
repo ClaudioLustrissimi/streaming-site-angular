@@ -1,0 +1,88 @@
+<app-navbar></app-navbar>
+<main *ngIf="singlemovie">
+
+    <header
+    [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/original/'+singlemovie.backdrop_path+')'}">
+
+    <div>
+        <div class="imgcard">
+            <img [src]="'https://image.tmdb.org/t/p/original/'+singlemovie.poster_path" alt="">
+        </div>
+    </div>
+        <button (click)="pushCart(singlemovie)">+ Aggiungi al carrello</button>
+    </header>
+
+    <nav>
+        <h1>{{singlemovie.original_title}}</h1>
+
+        <p>{{singlemovie.overview}}</p>
+
+        <h3>Data di uscita: {{singlemovie.release_date | date: 'dd-MM-YYYY'}}</h3>
+    </nav>
+
+    <div id="cast">
+        <h2>Attori in primo piano</h2>
+
+        <div class="container-fluid">
+            <div class="slider-warp">
+                <div class="slider-main" >
+                    <div class="item" *ngFor="let c of moviecast">
+                        <div class="card" [ngStyle]="{'background-image': c.profile_path === null ? 'url(/assets/img/imgnotfound.jpg)' : ''}">
+                            <img [src]="'https://image.tmdb.org/t/p/original'+c.profile_path" alt="">
+                        </div>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="button" class="prev" appPrev><</button>
+                    <button type="button" class="next" appNext>></button>   
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="content">
+
+        <h2>Guarda ora il trailer</h2>
+        <button class="btn" (click)="showTrailer()">Clicca qui</button>
+
+    </div>
+
+    <div id="trailer" *ngIf="show">
+
+        <iframe
+            id="player"
+            *ngIf="trailer"
+            type="text/html"
+            [src]="'https://www.youtube.com/embed/'+trailer.key | safe"
+            frameborder="0"></iframe>
+
+            <div>
+                <button class="close" (click)="closeTrailer()">Chiudi</button>
+            </div>
+
+    </div>
+
+    <div id="similarmovie">
+
+        <h2>Consigliati</h2>
+
+        <div class="container-fluid" id="similar">
+            <div class="slider-warp">
+                <div class="slider-main" >
+                    <div class="item" *ngFor="let s of similarmovie">
+                        <div class="card" [ngStyle]="{'background-image': s.poster_path === null ? 'url(/assets/img/imgnotfound.jpg)' : ''}">
+                            <img [src]="'https://image.tmdb.org/t/p/original/'+s.poster_path" alt="">
+                            <a [routerLink]="['/singlemovie', s.id]" [ngStyle]="{'display': s.poster_path === null ? 'none' : 'block'}">Guarda ora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="button" class="prev" appPrev><</button>
+                    <button type="button" class="next" appNext>></button>   
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</main>

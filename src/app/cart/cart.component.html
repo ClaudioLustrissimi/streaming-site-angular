@@ -1,0 +1,27 @@
+<app-navbar></app-navbar>
+<main>
+
+    <h3>Benvenuto nel Carrello</h3>
+
+        <nav *ngFor="let s of cartMovie">
+
+                <div>
+                    <img [src]="'https://image.tmdb.org/t/p/original/'+s.poster_path" alt="">
+                </div>
+
+                <div class="info">
+                    <h2>{{s.original_title}}</h2>
+
+                    <p>
+                       Prezzo: {{s.price}}€
+                    </p>
+
+                    <button (click)="removeMovie(s)">Rimuovi</button>
+                </div>
+        </nav>
+
+        <section>
+            <h2>Totale da pagare: {{totale}}€</h2>
+        </section>
+
+</main>

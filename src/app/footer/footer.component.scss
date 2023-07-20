@@ -1,0 +1,32 @@
+footer{
+    position: relative;
+    height: 100px;
+    margin-top: 150px;
+    background-color: rgb(167, 165, 165);
+    text-align: center;
+}
+
+footer ul{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 18px;
+    li{
+        display: inline-block;
+        padding: 0 20px;
+    }
+    a{
+        color: rgb(227, 226, 226);
+        cursor: pointer;
+    }
+    a:hover{
+        color: #fff;
+    }
+}
+
+footer p{
+    margin-top: 15px;
+    font-size: 13px;
+    color: rgb(115, 115, 115);
+}
+

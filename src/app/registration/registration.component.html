@@ -1,0 +1,53 @@
+<main>
+
+    <div class="loginbox">
+       
+        <form [formGroup]="signupForm" (ngSubmit)="signUp()">
+            <h2>Registrati</h2>
+
+            <div class="inputbox">
+
+                <input formControlName="nome" type="text" name="nome" id="nome">
+                <label for="nome">Nome Utente</label>
+                <span *ngIf="Name.invalid && Name.touched">Inserisci un nome</span>
+
+            </div>
+
+            <div class="inputbox">
+
+                <input formControlName="email" type="email" name="email" id="email">
+                <label for="email">Email</label>
+                <span *ngIf="Email.invalid && Email.touched">Inserisci un email valida</span>
+
+            </div>
+
+            <div class="inputbox">
+
+                <input formControlName="password" type="password" name="password" id="password">
+                <label for="password">Password</label>
+                <span *ngIf="Password.invalid && Password.touched">Inserisci una password che abbia 1 lettera maiuscola e 1 numero</span>
+
+            </div>
+
+            <div class="inputbox">
+
+                <input formControlName="ripetipassword" type="password" name="rpassword" id="rpassword">
+                <label for="rpassword">Ripeti Password</label>
+                <span *ngIf="signupForm.errors?.['passwordmatcherror']">Attenzione le due password non sono uguali</span>
+
+            </div>
+
+            <button type="submit" [disabled]="!signupForm.valid" [ngStyle]="{'background-color': !signupForm.valid === true ? 'red' : ''}">Registrati</button>
+
+            <div class="registerlink">
+
+                <p>Hai già un account? <a routerLink="/login" routerLinkActive="/login">Accedi da qui</a></p>
+
+            </div>
+        
+        </form>
+
+    </div>
+
+</main>
+

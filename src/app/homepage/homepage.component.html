@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+<main>
+    
+    <header>
+        
+        <div class="cop">
+            <h1>Film e tanto altro, senza limiti.</h1>
+
+            <h3>Guarda ciò che vuoi ovunque.</h3>
+
+            <p>
+                Vuoi guardare LabTv? Clicca su scopri ora per abbonarti o riattivare il tuo abbonamento.
+            </p>
+
+            <a>Scopri ora</a>
+
+            <form (ngSubmit)="submitForm()">
+                <div class="search">
+                    <input type="text" class="text" placeholder="Ricerca..." name="chiave" [(ngModel)]="chiave">
+                    <input type="submit" class="btn"  placeholder="Cerca">
+                </div>
+            </form>
+        </div>
+        
+    
+    </header>
+
+    <article>
+        <p>
+            Scopri tutti i film attualmente presenti in LabTv, leggi le trame e guarda i trailer e le clip presenti per ogni singolo film. Questo ed altro nelle categorie che vi proponiamo a seguire.
+        </p>
+    </article>
+
+    <nav class="slider" id="popular">
+
+        <h2>Film Popolari</h2>
+
+        <div class="container-fluid">
+            <div class="slider-warp">
+                <div class="slider-main" >
+                    <div class="item" *ngFor="let m of popularmovie">
+                        <div class="card">
+                            <img [src]="'https://image.tmdb.org/t/p/original/'+m. backdrop_path" alt="">
+                            <a [routerLink]="['/singlemovie',m.id]" (click)="controllOn()">Guarda ora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="button" class="prev" appPrev><</button>
+                    <button type="button" class="next" appNext>></button>   
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <nav class="slider" id="trend">
+
+        <h2>Film Di Tendenza</h2>
+
+        <div class="container-fluid">
+            <div class="slider-warp">
+                <div class="slider-main" >
+                    <div class="item" *ngFor="let t of trendingmovie">
+                        <div class="card">
+                            <img [src]="'https://image.tmdb.org/t/p/original/'+t. backdrop_path" alt="">
+                            <a [routerLink]="['/singlemovie',t.id]" (click)="controllOn()">Guarda ora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="button" class="prev" appPrev><</button>
+                    <button type="button" class="next" appNext>></button>   
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <nav class="slider" id="toprated">
+
+        <h2>Migliori Film</h2>
+
+        <div class="container-fluid">
+            <div class="slider-warp">
+                <div class="slider-main" >
+                    <div class="item" *ngFor="let t of topratedmovie">
+                        <div class="card">
+                            <img [src]="'https://image.tmdb.org/t/p/original/'+t. backdrop_path" alt="">
+                            <a [routerLink]="['/singlemovie',t.id]" (click)="controllOn()">Guarda ora</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="button-area">
+                    <button type="button" class="prev" appPrev><</button>
+                    <button type="button" class="next" appNext>></button>   
+                </div>
+            </div>
+        </div>
+
+    </nav>
+
+    <div id="popupclick" class="popup" *ngIf="popupclick">
+
+        <div>
+            <img src="/assets/img/userforpopup.png" alt="">
+        </div>
+        <button class="close-btn" (click)="closePopupClick()">X</button>
+        <p>
+           Per visualizzare tutte le informazioni riguardo i Film, devi prima eseguire il Login. <br> Puoi farlo direttamente <a routerLink="/login">da qui</a> oppure <a routerLink="/registrati">Registrati.</a> 
+        </p>
+
+    </div>
+
+    
+</main>
+
+<app-footer></app-footer>
